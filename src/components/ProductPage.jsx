@@ -159,27 +159,37 @@ const ProductPage = () => {
 
                         </button>
                     </div>
+                      {/* Floating Cart Button */}
+            {cart.length > 0 && (
+                <button
+                    onClick={toggleCartModal}
+                    className="fixed bottom-12  px-6 py-2 bg-[#FFBB5A] text-[#364A63] rounded shadow-lg font-semibold"
+                >
+                    Checkout <span className="bg-white px-[8px] py-[4px] ml-2 rounded-lg text-sm">{cart.length}</span>
+                </button>
+            )}
 
 
                 </div>
             </div>
 
-            {/* Floating Cart Button */}
-            {cart.length > 0 && (
-                <button
-                    onClick={toggleCartModal}
-                    className="fixed bottom-4 right-4 px-6 py-2 bg-[#6576FF] text-white rounded shadow-lg"
-                >
-                    Checkout ({cart.length})
-                </button>
-            )}
+          
 
             {/* Cart Modal */}
             {showCart && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                    <div className="bg-white p-8 rounded shadow-lg max-w-lg w-full">
-                        <h2 className="text-xl font-bold">Your Cart</h2>
+                    <div className="bg-white p-8 rounded shadow-lg max-w-2xl w-full">
+                        <h2 className="text-xl font-bold text-[#364A63]">Your Cart</h2>
                         <div className="mt-4">
+                            <div>
+                            <div className="flex items-center justify-around text-[#8091A7] text-sm">
+                                        <p>{`item`}</p>
+                                        <p>{`Color`}</p>
+                                        <p>{`Size`}</p>
+                                        <p>{`Qty`}</p>
+                                        <p>{`Total`}</p>
+                                    </div>
+                            </div>
                             {cart.map((item) => (
                                 <div key={item.id} className="flex justify-between items-center p-2 border-b">
                                     <img
@@ -187,21 +197,31 @@ const ProductPage = () => {
                                         alt={`${item.color} Watch`}
                                         className="w-16"
                                     />
-                                    <div>
-                                        <p>{`Color: ${item.color}`}</p>
-                                        <p>{`Size: ${item.size} $${item.price}`}</p>
-                                        <p>{`Qty: ${item.quantity}`}</p>
-                                        <p>{`Total: $${(item.price * item.quantity).toFixed(2)}`}</p>
+
+
+                                    <div className="flex items-center justify-around  w-full" >
+                                        <p>{` ${item.color}`}</p>
+                                        <p>{`${item.size} $${item.price}`}</p>
+                                        <p>{` ${item.quantity}`}</p>
+                                        <p>{`$${(item.price * item.quantity).toFixed(2)}`}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
+                       <div className="flex items-center justify-end space-x-4">
+                       <button
+                            onClick={toggleCartModal}
+                            className="mt-4 px-6 py-2 border border-[#DBDFEA] text-[#364A63] rounded "
+                        >
+                            Continue Shopping
+                        </button>
                         <button
                             onClick={toggleCartModal}
-                            className="mt-4 px-6 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                            className="mt-4 px-6 py-2 bg-[#6576FF] text-[#FFFFFF] rounded "
                         >
-                            Close
+                            Checkout
                         </button>
+                       </div>
                     </div>
                 </div>
             )}
