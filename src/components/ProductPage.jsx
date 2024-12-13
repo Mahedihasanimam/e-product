@@ -1,7 +1,7 @@
 import { useState } from "react";
-import imgPurple from "../assets/img1.png"; // Add actual image path
-import imgBlue from "../assets/img2.png"; // Replace with the actual blue image path
-import imgGreen from "../assets/img3.png"; // Replace with the actual green image path
+import imgPurple from "../assets/img1.png"; 
+import imgBlue from "../assets/img2.png";
+import imgGreen from "../assets/img3.png";
 
 const ProductPage = () => {
     const [selectedColor, setSelectedColor] = useState("purple");
@@ -24,7 +24,6 @@ const ProductPage = () => {
         { size: "XL", price: 99 },
     ];
 
-    // Map colors to images
     const images = {
         purple: imgPurple,
         blue: imgBlue,
@@ -45,7 +44,7 @@ const ProductPage = () => {
     const toggleCartModal = () => setShowCart(!showCart);
 
     const adjustQuantity = (amount) => {
-        setQuantity((prev) => Math.max(1, prev + amount)); // Prevents quantity from being less than 1
+        setQuantity((prev) => Math.max(1, prev + amount)); 
     };
 
     const toggleFavorite = () => {
@@ -59,7 +58,7 @@ const ProductPage = () => {
                 {/* Thumbnail */}
                 <div>
                     <img
-                        src={images[selectedColor]} // Dynamically display the image
+                        src={images[selectedColor]} 
                         alt={`${selectedColor} Smart Watch`}
                         className="w-96"
                     />

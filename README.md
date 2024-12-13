@@ -1,7 +1,7 @@
 # Product Page
 
 ## Live Preview
-[Link to Live Preview](http://your-live-preview-link.com)
+[\[Link to Live Preview\]](https://my-product-rosy.vercel.app/)
 
 ## Overview
 The **Product Page** component is designed to showcase a smart watch with dynamic features such as changing band colors, different wrist sizes, and a cart system for adding items to a shopping cart. The page is built with React, utilizing the useState hook to manage state changes like the selected color, size, quantity, and favorite status. 
